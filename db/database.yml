@@ -1,0 +1,65 @@
+# SQLite. Versions 3.8.0 and up are supported.
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+#
+
+# Connect to MySQL database local
+# default: &default
+#   adapter: mysql2
+#   encoding: utf8
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#   username: root
+#   password: 
+#   host: localhost
+
+# Connect to MySQL database server
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: codeboxx
+  password: Codeboxx1!
+  host: codeboxx.cq6zrczewpu2.us-east-1.rds.amazonaws.com
+  port: 3306
+  database: IjlalGondal
+
+development:
+  <<: *default
+  database: IjlalGondal
+
+# Connect to PosgreSQL database local
+# development_pg:
+#   adapter: postgresql
+#   encoding: utf8
+#   database: postgres
+#   pool: 5
+#   username: postgres
+#   host: localhost
+#   password: poiu
+#   port: 5432
+
+# Connect to PosgreSQL database server
+development_pg:
+  adapter: postgresql
+  encoding: utf8
+  database: jonathanMurray
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: codeboxx
+  host: codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com
+  password: Codeboxx1!
+  port: 
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: db/test.sqlite3
+
+production:
+  <<: *default
+  database: Rocket_Elevators_Information_System_production
+  username: Rocket_Elevators_Information_System
+  password: <%= ENV['ROCKET_ELEVATORS_INFORMATION_SYSTEM_DATABASE_PASSWORD'] %>
